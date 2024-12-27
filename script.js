@@ -15,14 +15,29 @@ function createCanvas(square){
         squareDiv.style.border = "1px black solid"
         container.style.gridTemplateColumns = `repeat(${square},1fr)`
         container.appendChild(squareDiv)
+        let hoverCount = 0;
+        let opact = 0
         squareDiv.addEventListener("mouseover",()=>{
-            squareDiv.style.background = "blue";
+            hoverCount++;
+            opact+=10;
+            for (let i=10;i>0;i--){
+                squareDiv.style.background = randomColor(opact);
+            }
         })
     }
 }
 
 function deleteCanvas(){
     container.innerHTML = '';
+}
+
+function randomColor(e){
+    let numColor1 = Math.floor(Math.random()*256) //Create int from 0 to 255
+    let numColor2 = Math.floor(Math.random()*256)
+    let numColor3 = Math.floor(Math.random()*256)
+    let opacity = e
+    let colorRgb = `rgb(${numColor1} ${numColor2} ${numColor3} / ${opacity}%)`
+    return colorRgb
 }
 
 
