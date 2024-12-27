@@ -1,0 +1,7 @@
+#container{
+    display: grid;
+    min-height: 80vh;
+    max-height: 90vh;
+    gap : 3px;
+    margin :1em
+}
